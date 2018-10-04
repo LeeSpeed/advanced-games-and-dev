@@ -426,42 +426,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Advanced Games and Dev/Assets/Scenes/Main.unity
 --- !u!1 &1379940728
+=======
+--- !u!1 &1262522206
+>>>>>>> AnimationBranch:Advanced Games and Dev/Assets/Main.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Advanced Games and Dev/Assets/Scenes/Main.unity
   - component: {fileID: 1379940732}
   - component: {fileID: 1379940731}
   - component: {fileID: 1379940730}
   - component: {fileID: 1379940729}
   m_Layer: 0
   m_Name: Nik Sphere
+=======
+  - component: {fileID: 1262522210}
+  - component: {fileID: 1262522209}
+  - component: {fileID: 1262522208}
+  - component: {fileID: 1262522207}
+  m_Layer: 0
+  m_Name: Maris
+>>>>>>> AnimationBranch:Advanced Games and Dev/Assets/Main.unity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Advanced Games and Dev/Assets/Scenes/Main.unity
 --- !u!135 &1379940729
+=======
+--- !u!135 &1262522207
+>>>>>>> AnimationBranch:Advanced Games and Dev/Assets/Main.unity
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Advanced Games and Dev/Assets/Scenes/Main.unity
   m_GameObject: {fileID: 1379940728}
+=======
+  m_GameObject: {fileID: 1262522206}
+>>>>>>> AnimationBranch:Advanced Games and Dev/Assets/Main.unity
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Advanced Games and Dev/Assets/Scenes/Main.unity
 --- !u!23 &1379940730
+=======
+--- !u!23 &1262522208
+>>>>>>> AnimationBranch:Advanced Games and Dev/Assets/Main.unity
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Advanced Games and Dev/Assets/Scenes/Main.unity
   m_GameObject: {fileID: 1379940728}
+=======
+  m_GameObject: {fileID: 1262522206}
+>>>>>>> AnimationBranch:Advanced Games and Dev/Assets/Main.unity
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -491,21 +520,37 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+<<<<<<< HEAD:Advanced Games and Dev/Assets/Scenes/Main.unity
 --- !u!33 &1379940731
+=======
+--- !u!33 &1262522209
+>>>>>>> AnimationBranch:Advanced Games and Dev/Assets/Main.unity
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Advanced Games and Dev/Assets/Scenes/Main.unity
   m_GameObject: {fileID: 1379940728}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1379940732
+=======
+  m_GameObject: {fileID: 1262522206}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1262522210
+>>>>>>> AnimationBranch:Advanced Games and Dev/Assets/Main.unity
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Advanced Games and Dev/Assets/Scenes/Main.unity
   m_GameObject: {fileID: 1379940728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.17, y: 0.97076166, z: -2.1401143}
+=======
+  m_GameObject: {fileID: 1262522206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.781, z: 0}
+>>>>>>> AnimationBranch:Advanced Games and Dev/Assets/Main.unity
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
