@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : Photon.MonoBehaviour {
+
+    public bool devTesting = false;
+    public PhotonView pView;
+    public GameObject plCam;
+    private Vector3 selfPos;
+    private Quaternion realRotation;
+
+    private Animator anim;
 
     [SerializeField] float walkSpeed = 2.0f;
     [SerializeField] float runSpeed = 6.0f;
@@ -20,8 +28,29 @@ public class PlayerMovement : MonoBehaviour {
         cameraTransform = Camera.main.transform;
         characterController = GetComponent<CharacterController>();
     }
+    private void Awake()
+    {
+        if(!devTesting && photonView.isMine)
+        {
+            plCam.SetActive(true);
+        }
+    }
 
-    void Update()
+    private void Update()
+    {
+        if (!devTesting)
+        {
+            if (photonView.isMine)
+            {
+                CheckInput();
+            }
+            else SmoothNetMovement();
+        }else  CheckInput();
+        
+    }
+
+
+    private void CheckInput()
     {
         // player inputs
         Vector2 playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -57,7 +86,37 @@ public class PlayerMovement : MonoBehaviour {
             velocityY = 0;
         }
     }
+
+    private void SmoothNetMovement()
+    {
+        transform.position = Vector3.Lerp(transform.position, selfPos, Time.deltaTime * 8);
+        transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, Time.deltaTime * 8);
+    }
+
+    private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            //THIS IS OUR PLAYER
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+            stream.SendNext(animator.GetFloat("speedPercent"));
+
+        }
+        else
+        {
+            //THIS IS OTHER COOP PLAYER
+            selfPos = (Vector3)stream.ReceiveNext();
+            realRotation = (Quaternion)stream.ReceiveNext();
+
+            animator.SetFloat("speedPercent", (float)stream.ReceiveNext());
+        }
+    }
+
+
 }
+
+
 
 //[SerializeField] float InputX, InputZ, playerRotationSpeed, speed, allowPlayerRotation, verticalVel;
 //[SerializeField] bool isGrounded, blockRotationPlayer;
