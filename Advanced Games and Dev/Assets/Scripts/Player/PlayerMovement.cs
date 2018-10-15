@@ -6,11 +6,12 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] float runSpeed = 6.0f;
     [SerializeField] float gravity = -12.0f;
     [SerializeField] float rotationSmoothTime = 0.2f;
-    [SerializeField] float speedSmoothTime = 0.1f;
+    [SerializeField] float speedSmoothTime = 0.05f;
 
     private float playerSpeed, animSpeedPercent, turnSmoothVelocity, speedSmoothVelocity, currentSpeed, velocityY;
 
     Animator animator;
+    bool playerHasBeenSpotted;
     CharacterController characterController;
     Transform cameraTransform;
 
@@ -19,12 +20,17 @@ public class PlayerMovement : MonoBehaviour {
         animator = GetComponent<Animator>();
         cameraTransform = Camera.main.transform;
         characterController = GetComponent<CharacterController>();
+        PatrolBots.OnPlayerHasBeenSpotted += PlayerSpotted;
     }
 
     void Update()
     {
-        // player inputs
-        Vector2 playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 playerInput = Vector2.zero;
+        
+        if(!playerHasBeenSpotted)
+        {
+            playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
         Vector2 inputDirection = playerInput.normalized;
         bool running = Input.GetKey(KeyCode.LeftShift);
 
@@ -56,6 +62,16 @@ public class PlayerMovement : MonoBehaviour {
         {
             velocityY = 0;
         }
+    }
+
+    void PlayerSpotted()
+    {
+        playerHasBeenSpotted = true;
+    }
+
+    void OnDestroy()
+    {
+        PatrolBots.OnPlayerHasBeenSpotted -= PlayerSpotted;
     }
 }
 
